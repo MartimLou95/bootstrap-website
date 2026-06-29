@@ -1,0 +1,334 @@
+/* ── 1. Theme variables (light theme for now) ── */
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-muted: #6b6b6b;
+  --color-accent: #2d6cdf;
+  --color-border: #e5e5e5;
+
+  --font-body:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --content-width: 720px;
+}
+
+/* ── 2. Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── 3. Base ── */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* ── 4. Typography ── */
+h1 {
+  font-size: 2.2rem;
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+}
+h2 {
+  font-size: 1.4rem;
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  margin-bottom: var(--space-md);
+  padding-left: 1.2rem;
+}
+li {
+  margin-bottom: var(--space-sm);
+}
+
+/* ── 5. Top navigation bar ── */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--color-text);
+}
+
+.main-nav {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.main-nav a {
+  color: var(--color-muted);
+}
+
+.main-nav a:hover {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* ── 6. Two-column layout shell ── */
+.layout {
+  display: flex;
+  gap: var(--space-lg);
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+.sidebar {
+  flex: 0 0 200px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  position: sticky;
+  top: var(--space-lg);
+}
+
+.sidebar-nav a {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.sidebar-nav a:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: var(--content-width);
+}
+
+/* ── 7. Sidebar labels ── */
+.sidebar-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.sidebar-more {
+  display: inline-block;
+  margin-top: var(--space-md);
+  font-size: 0.9rem;
+  color: var(--color-accent);
+}
+
+/* ── 8. Log entry list ── */
+.entry-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.entry-list li {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-muted);
+}
+
+.entry-list a {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.entry-list a:hover {
+  color: var(--color-accent);
+}
+
+.draft {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  padding: 1px 6px;
+  margin-left: 4px;
+}
+
+/* ── 9. Article (single entry) ── */
+.entry-meta {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-lg);
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+}
+
+blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: var(--space-md);
+  margin: var(--space-lg) 0;
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+.back-link {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ── 10. Images inside articles ── */
+.content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: var(--space-lg) 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius, 4px);
+}
+
+blockquote cite {
+  display: block;
+  margin-top: var(--space-sm);
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.entry-source {
+  margin-top: var(--space-lg);
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+/* ── 11. Contact form ── */
+.contact-form {
+  max-width: 480px;
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.6rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+/* ── 12. Responsive: stack and center on small screens ── */
+@media (max-width: 720px) {
+  .site-header {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar {
+    flex: 0 0 auto;
+  }
+
+  .sidebar-nav {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+}
+
+/* ── 13. Accent tick before section headings ── */
+.content h2 {
+  position: relative;
+}
+
+.content h2::before {
+  content: "";
+  position: absolute;
+  left: -1rem;
+  top: 0.15em;
+  width: 3px;
+  height: 0.9em;
+  background-color: var(--color-accent);
+}
